@@ -5,734 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Geethika Manojna Pallavi N - Portfolio | Aspiring Web Developer | B.Tech Computer Science Student">
     <title>Geethika Manojna Pallavi N - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        /* Navigation */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        .menu a:hover {
-            background-color: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #667eea;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 2px;
-        }
-
-        /* Intro Section */
-        #intro {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 6rem 2rem;
-        }
-
-        .intro-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .intro-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-            line-height: 1.2;
-        }
-
-        .intro-text .highlight {
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .intro-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .intro-image {
-            text-align: center;
-        }
-
-        .intro-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px) scale(1.1);
-        }
-
-        .social-links img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            padding: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Skills Section */
-        #skills {
-            background: white;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            border-color: #667eea;
-        }
-
-        .skill-card img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-
-        .skills-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .skills-image img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .skills-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .skills-text p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Certificates Section */
-        #certificates {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .certificates-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .certificates-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        .category-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .certificate-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-        }
-
-        .certificate-image-container {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            background: #f8f9fa;
-        }
-
-        .certificate-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .certificate-card:hover .certificate-image-container img {
-            transform: scale(1.1);
-        }
-
-        .certificate-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(102, 126, 234, 0.8));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .certificate-card:hover .certificate-overlay {
-            opacity: 1;
-        }
-
-        .view-certificate {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .certificate-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .certificate-category {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.75rem;
-            width: fit-content;
-        }
-
-        .certificate-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .certificate-description {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .certificate-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-        }
-
-        .certificate-platform {
-            font-size: 0.85rem;
-            color: #999;
-            font-weight: 500;
-        }
-
-        .view-btn {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .view-btn:hover {
-            color: #764ba2;
-            transform: translateX(5px);
-        }
-
-        /* Modal Lightbox */
-        .certificate-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .certificate-modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            animation: zoomIn 0.3s ease;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 10px;
-            display: block;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .modal-close:hover {
-            transform: rotate(90deg);
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            color: #667eea;
-        }
-
-        .modal-nav:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .modal-prev {
-            left: -70px;
-        }
-
-        .modal-next {
-            right: -70px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #999;
-            font-size: 1.2rem;
-            display: none;
-        }
-
-        .no-results.show {
-            display: block;
-        }
-
-        /* Achievements Section */
-        #achievements {
-            background: white;
-        }
-
-        .achievements-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .achievement-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .achievement-card img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-        }
-
-        .achievement-card h3 {
-            font-size: 1.3rem;
-            margin-top: 1rem;
-        }
-
-        .achievements-list {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            margin-top: 3rem;
-        }
-
-        .achievements-list h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #333;
-            text-align: center;
-        }
-
-        .achievements-list ul {
-            list-style: none;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .achievements-list li {
-            padding: 1rem;
-            margin: 0.5rem 0;
-            background: white;
-            border-left: 4px solid #667eea;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .achievements-list li:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .intro-container,
-            .skills-content {
-                grid-template-columns: 1fr;
-            }
-
-            .intro-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .certificates-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certificates-stats {
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .category-filters {
-                gap: 0.5rem;
-            }
-
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .modal-nav {
-                display: none;
-            }
-
-            .modal-close {
-                top: 10px;
-                right: 10px;
-                color: #333;
-            }
-
-            .modal-content {
-                padding: 1rem;
-                max-width: 95%;
-            }
-
-            .achievements-container {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <header>
+    <header id="navbar">
         <nav>
-            <div class="logo">Geethika Manojna Pallavi Nandamuri</div>
+            <div class="logo">G<span class="logo-dot">.</span>Manojna</div>
             <ul class="menu">
-                <li><a href="#intro">Intro</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#intro"    class="nav-link active">Home</a></li>
+                <li><a href="#skills"   class="nav-link">Skills</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="intro">
+        <!-- decorative background blobs -->
+        <div class="hero-blob hero-blob--1" aria-hidden="true"></div>
+        <div class="hero-blob hero-blob--2" aria-hidden="true"></div>
+        <div class="hero-blob hero-blob--3" aria-hidden="true"></div>
+
         <div class="intro-container">
+
+            <!-- ── LEFT COLUMN ── -->
             <div class="intro-text">
-                <h1>Hi All, I am <span class="highlight">Geethika</span> 👋</h1>
-                <p>I am a second-year <strong>B.Tech Computer Science</strong> student with a strong interest in technology and programming. I am an <strong>Aspiring and Enthusiastic Web Developer</strong> passionate about creating innovative solutions.</p>
-                <p>I want to become proficient in Web Technologies. After completing my graduation, I aspire to work in a company where I can effectively apply my skills to contribute to various development projects.</p>
+                <p class="hero-greeting">👋 Hello, I'm</p>
+
+                <h1 class="hero-name">
+                    Geethika
+                    <span class="hero-name-sub">Manojna Pallavi</span>
+                </h1>
+
+                <div class="hero-role">
+                    <span class="role-prefix">I'm a&nbsp;</span>
+                    <span class="role-typed" id="typedRole">Web Developer</span>
+                    <span class="role-cursor" aria-hidden="true">|</span>
+                </div>
+
+                <p class="hero-desc">B.Tech Computer Science student passionate about building modern web experiences. I turn ideas into elegant, performant digital products.</p>
+
+                <div class="hero-cta">
+                    <a href="#" class="btn btn--primary" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Resume
+                    </a>
+                    <a href="#achievements" class="btn btn--ghost">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Contact Me
+                    </a>
+                </div>
+
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/geethika-manojna-pallavi-nandamuri-a57b402a2/" target="_blank" aria-label="LinkedIn">
                         <img src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn">
@@ -745,54 +71,147 @@
                     </a>
                 </div>
             </div>
+
+            <!-- ── RIGHT COLUMN ── -->
             <div class="intro-image">
-                <img src="https://www.sureteam.co.uk/wp-content/uploads/2019/06/New_healthy_working_system.jpeg" alt="Web Development">
+                <!-- decorative rings -->
+                <div class="hero-ring hero-ring--1" aria-hidden="true"></div>
+                <div class="hero-ring hero-ring--2" aria-hidden="true"></div>
+                <!-- particle dots -->
+                <div class="hero-particles" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+                <!-- profile image -->
+                <div class="hero-img-wrapper">
+                    <img src="https://www.sureteam.co.uk/wp-content/uploads/2019/06/New_healthy_working_system.jpeg" alt="Geethika Manojna Pallavi">
+                </div>
             </div>
+
+        </div>
+
+        <!-- scroll indicator -->
+        <div class="scroll-indicator" aria-label="Scroll down">
+            <span class="scroll-indicator__line"></span>
+            <span class="scroll-indicator__label">Scroll</span>
         </div>
     </section>
 
     <section id="skills">
         <h2 class="section-title">Skills</h2>
-        <div class="skills-content">
-            <div class="skills-image">
-                <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2ViJTIwZGV2ZWxvcGVyfGVufDB8fDB8fHww" alt="Web Developer">
+
+        <div class="bento-grid">
+
+            <!-- WIDE intro card -->
+            <div class="bento-card bento-card--intro">
+                <div class="bento-card__inner">
+                    <p class="bento-label">About my stack</p>
+                    <h3>What I Build With</h3>
+                    <p>Aspiring Web Developer and problem solver passionate about crafting performant, elegant digital experiences using modern tools and languages.</p>
+                    <div class="bento-tags">
+                        <span>Web Dev</span><span>Problem Solving</span><span>Full Stack</span>
+                    </div>
+                </div>
             </div>
-            <div class="skills-text">
-                <h2>What I Do...</h2>
-                <p>Aspiring Web Developer and enthusiastic problem solver in platforms like CodeChef and HackerRank. I have earned certifications in many courses and practice modules, continuously expanding my knowledge and skills in web technologies and programming.</p>
+
+            <!-- skill cards -->
+            <div class="bento-card skill-card" data-level="90">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYZqZkpMyiN2uSuT7GAf6JSkJ44YsZqoQHdw&s" alt="Python">
+                    </div>
+                    <span class="skill-name">Python</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:90%"></div></div>
+                </div>
             </div>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYZqZkpMyiN2uSuT7GAf6JSkJ44YsZqoQHdw&s" alt="Python">
+
+            <div class="bento-card skill-card" data-level="80">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-java-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-language-pack-logos-icons-1174953.png?f=webp&w=256" alt="Java">
+                    </div>
+                    <span class="skill-name">Java</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:80%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-java-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-language-pack-logos-icons-1174953.png?f=webp&w=256" alt="Java">
+
+            <div class="bento-card skill-card" data-level="95">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://grafxflow.co.uk/storage/app/uploads/public/5ac/be6/276/thumb_764_566_0_0_0_auto.png" alt="HTML">
+                    </div>
+                    <span class="skill-name">HTML5</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:95%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://grafxflow.co.uk/storage/app/uploads/public/5ac/be6/276/thumb_764_566_0_0_0_auto.png" alt="HTML">
+
+            <div class="bento-card skill-card" data-level="90">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
+                    </div>
+                    <span class="skill-name">CSS3</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:90%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
+
+            <!-- TALL featured card -->
+            <div class="bento-card bento-card--featured">
+                <div class="bento-card__inner">
+                    <p class="bento-label">Most used</p>
+                    <div class="featured-icon">
+                        <img src="https://img.icons8.com/?size=512&id=40670&format=png" alt="JavaScript">
+                    </div>
+                    <span class="skill-name">JavaScript</span>
+                    <p class="featured-desc">Building interactive, dynamic web applications with modern ES6+.</p>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:88%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/?size=512&id=40670&format=png" alt="JavaScript">
+
+            <div class="bento-card skill-card" data-level="72">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8cl5rtqfvfbXqVktysiF-aR_TwZoeuYZwFg&s" alt="Node.js">
+                    </div>
+                    <span class="skill-name">Node.js</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:72%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8cl5rtqfvfbXqVktysiF-aR_TwZoeuYZwFg&s" alt="Node.js">
+
+            <div class="bento-card skill-card" data-level="70">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-mongodb-3-1175138.png" alt="MongoDB">
+                    </div>
+                    <span class="skill-name">MongoDB</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:70%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-mongodb-3-1175138.png" alt="MongoDB">
+
+            <div class="bento-card skill-card" data-level="78">
+                <div class="bento-card__inner">
+                    <div class="skill-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png" alt="C++">
+                    </div>
+                    <span class="skill-name">C++</span>
+                    <div class="skill-bar"><div class="skill-bar__fill" style="--pct:78%"></div></div>
+                </div>
             </div>
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png" alt="C++">
+
+            <!-- stat card -->
+            <div class="bento-card bento-card--stat">
+                <div class="bento-card__inner">
+                    <span class="stat-big">8+</span>
+                    <p>Technologies mastered</p>
+                </div>
             </div>
+
         </div>
     </section>
 
     <section id="certificates">
         <h2 class="section-title">Certifications</h2>
-        
+
         <div class="certificates-header">
             <div class="certificates-stats">
                 <div class="stat-item">
@@ -812,13 +231,23 @@
                     <span class="stat-label">Problem Solving</span>
                 </div>
             </div>
-            
+
             <div class="category-filters">
-                <button class="filter-btn active" data-filter="all">All Certificates</button>
-                <button class="filter-btn" data-filter="programming">Programming</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="problem-solving">Problem Solving</button>
-                <button class="filter-btn" data-filter="workshop">Workshops</button>
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-btn__icon">✦</span> All
+                </button>
+                <button class="filter-btn" data-filter="programming">
+                    <span class="filter-btn__icon">⌨</span> Programming
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <span class="filter-btn__icon">🌐</span> Web Dev
+                </button>
+                <button class="filter-btn" data-filter="problem-solving">
+                    <span class="filter-btn__icon">⚡</span> Problem Solving
+                </button>
+                <button class="filter-btn" data-filter="workshop">
+                    <span class="filter-btn__icon">🎓</span> Workshops
+                </button>
             </div>
         </div>
 
@@ -1287,242 +716,236 @@
 
         <!-- Modal Lightbox -->
         <div class="certificate-modal" id="certificateModal">
-            <span class="modal-close" id="modalClose">&times;</span>
-            <button class="modal-nav modal-prev" id="modalPrev">‹</button>
-            <button class="modal-nav modal-next" id="modalNext">›</button>
-            <div class="modal-content">
-                <img id="modalImage" src="" alt="Certificate">
+            <div class="modal-backdrop"></div>
+            <div class="modal-shell">
+                <button class="modal-close" id="modalClose" aria-label="Close">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <button class="modal-nav modal-prev" id="modalPrev" aria-label="Previous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="modal-nav modal-next" id="modalNext" aria-label="Next">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <div class="modal-content">
+                    <img id="modalImage" src="" alt="Certificate">
+                </div>
             </div>
         </div>
     </section>
 
     <section id="achievements">
         <h2 class="section-title">Achievements</h2>
-        <div class="achievements-container">
-            <div class="achievement-card">
-                <img src="Certificates/CodeChefBadge (5).png" alt="CodeChef Badge">
-                <h3>Diamond Badge</h3>
-                <p>Problem Solving Excellence</p>
+
+        <!-- ── Counter strip ── -->
+        <div class="ach-counters">
+            <div class="ach-counter">
+                <span class="ach-counter__icon" aria-hidden="true">🏆</span>
+                <span class="ach-counter__num" data-target="44">0</span>
+                <span class="ach-counter__label">Contests</span>
             </div>
-            <div class="achievement-card">
-                <img src="Certificates/CodeChefBadge (6).png" alt="CodeChef Badge">
-                <h3>Diamond Badge</h3>
-                <p>Consistent Practice Streak</p>
+            <div class="ach-counter">
+                <span class="ach-counter__icon" aria-hidden="true">📜</span>
+                <span class="ach-counter__num" data-target="26">0</span>
+                <span class="ach-counter__label">Certificates</span>
             </div>
-            <div class="achievement-card">
-                <img src="Certificates/CodeChefBadge (7).png" alt="CodeChef Badge">
-                <h3>Silver Badge</h3>
-                <p>Active Contest Participation</p>
+            <div class="ach-counter">
+                <span class="ach-counter__icon" aria-hidden="true">💎</span>
+                <span class="ach-counter__num" data-target="3">0</span>
+                <span class="ach-counter__label">Badges</span>
+            </div>
+            <div class="ach-counter">
+                <span class="ach-counter__icon" aria-hidden="true">⚡</span>
+                <span class="ach-counter__num" data-target="8">0</span>
+                <span class="ach-counter__label">Languages</span>
             </div>
         </div>
-        <div class="achievements-list">
-            <h2>Key Highlights</h2>
-            <ul>
-                <li>✅ Participated in 44 weekly coding contests on CodeChef</li>
-                <li>✅ Contributed to a hackathon with an innovative idea</li>
-                <li>✅ Took part in an IEEE Quiz competition</li>
-                <li>✅ Developed a personal portfolio using Web Technologies</li>
-                <li>✅ Attended a workshop to enhance communication skills</li>
-            </ul>
+
+        <!-- ── Badge showcase ── -->
+        <div class="ach-badges">
+            <div class="ach-badge-card">
+                <div class="ach-badge-card__glow" aria-hidden="true"></div>
+                <div class="ach-badge-card__inner">
+                    <div class="ach-badge-card__img-wrap">
+                        <img src="Certificates/CodeChefBadge (5).png" alt="Diamond Badge">
+                    </div>
+                    <span class="ach-badge-card__tier ach-badge-card__tier--diamond">Diamond</span>
+                    <h3 class="ach-badge-card__title">Problem Solving Excellence</h3>
+                    <p class="ach-badge-card__desc">Awarded for outstanding performance in competitive problem solving on CodeChef.</p>
+                </div>
+            </div>
+            <div class="ach-badge-card">
+                <div class="ach-badge-card__glow" aria-hidden="true"></div>
+                <div class="ach-badge-card__inner">
+                    <div class="ach-badge-card__img-wrap">
+                        <img src="Certificates/CodeChefBadge (6).png" alt="Diamond Badge">
+                    </div>
+                    <span class="ach-badge-card__tier ach-badge-card__tier--diamond">Diamond</span>
+                    <h3 class="ach-badge-card__title">Consistent Practice Streak</h3>
+                    <p class="ach-badge-card__desc">Recognised for maintaining an exceptional practice streak across weekly contests.</p>
+                </div>
+            </div>
+            <div class="ach-badge-card">
+                <div class="ach-badge-card__glow" aria-hidden="true"></div>
+                <div class="ach-badge-card__inner">
+                    <div class="ach-badge-card__img-wrap">
+                        <img src="Certificates/CodeChefBadge (7).png" alt="Silver Badge">
+                    </div>
+                    <span class="ach-badge-card__tier ach-badge-card__tier--silver">Silver</span>
+                    <h3 class="ach-badge-card__title">Active Contest Participation</h3>
+                    <p class="ach-badge-card__desc">Earned for active and consistent participation in CodeChef coding contests.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Timeline ── -->
+        <div class="ach-timeline">
+            <div class="ach-timeline__line" aria-hidden="true"></div>
+
+            <div class="ach-timeline__item">
+                <div class="ach-timeline__dot" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="ach-timeline__card">
+                    <span class="ach-timeline__badge">🏅 Competitive</span>
+                    <h4>44 Weekly Coding Contests</h4>
+                    <p>Participated consistently in weekly CodeChef contests, steadily improving problem-solving speed and accuracy.</p>
+                </div>
+            </div>
+
+            <div class="ach-timeline__item ach-timeline__item--right">
+                <div class="ach-timeline__dot" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div class="ach-timeline__card">
+                    <span class="ach-timeline__badge">💡 Innovation</span>
+                    <h4>Hackathon Contribution</h4>
+                    <p>Contributed an innovative idea to a hackathon, collaborating with peers to develop a viable technical solution.</p>
+                </div>
+            </div>
+
+            <div class="ach-timeline__item">
+                <div class="ach-timeline__dot" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div class="ach-timeline__card">
+                    <span class="ach-timeline__badge">⚡ IEEE</span>
+                    <h4>IEEE Quiz Competition</h4>
+                    <p>Took part in an IEEE organised quiz competition, testing technical knowledge across computer science domains.</p>
+                </div>
+            </div>
+
+            <div class="ach-timeline__item ach-timeline__item--right">
+                <div class="ach-timeline__dot" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="ach-timeline__card">
+                    <span class="ach-timeline__badge">🌐 Web Dev</span>
+                    <h4>Built This Portfolio</h4>
+                    <p>Designed and developed a full personal portfolio using HTML, CSS, and JavaScript showcasing projects and skills.</p>
+                </div>
+            </div>
+
+            <div class="ach-timeline__item">
+                <div class="ach-timeline__dot" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="ach-timeline__card">
+                    <span class="ach-timeline__badge">🎓 Workshop</span>
+                    <h4>Communication Skills Workshop</h4>
+                    <p>Attended a professional workshop focused on enhancing communication, presentation, and interpersonal skills.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Geethika Manojna Pallavi N. All rights reserved.</p>
+    <footer id="footer">
+        <!-- animated gradient top line -->
+        <div class="footer-gradient-line" aria-hidden="true"></div>
+
+        <!-- ambient glow orb -->
+        <div class="footer-orb" aria-hidden="true"></div>
+
+        <div class="footer-inner">
+
+            <!-- brand column -->
+            <div class="footer-brand">
+                <div class="footer-logo">G<span>.</span>Manojna</div>
+                <p class="footer-tagline">Aspiring Web Developer &amp; problem solver,<br>turning ideas into elegant digital experiences.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/geethika-manojna-pallavi-nandamuri-a57b402a2/"
+                       target="_blank" rel="noopener" aria-label="LinkedIn" class="footer-social__link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/geethika-nandamuri"
+                       target="_blank" rel="noopener" aria-label="GitHub" class="footer-social__link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.codechef.com/users/geethikanandam"
+                       target="_blank" rel="noopener" aria-label="CodeChef" class="footer-social__link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- nav links -->
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <h3 class="footer-nav__heading">Navigation</h3>
+                <ul>
+                    <li><a href="#intro">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                </ul>
+            </nav>
+
+            <!-- back-to-top -->
+            <div class="footer-top">
+                <p class="footer-top__label">Back to top</p>
+                <button class="footer-top__btn" id="backToTop" aria-label="Back to top">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="18 15 12 9 6 15"/>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- divider -->
+        <div class="footer-divider" aria-hidden="true"></div>
+
+        <!-- copyright bar -->
+        <div class="footer-copy">
+            <p>&copy; 2024 <span>Geethika Manojna Pallavi Nandamuri</span>. All rights reserved.</p>
+            <p class="footer-copy__made">Crafted with <span aria-hidden="true">&hearts;</span> using HTML, CSS &amp; JavaScript</p>
+        </div>
     </footer>
 
-    <div class="scroll-top" id="scrollTop">↑</div>
+    <div class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </div>
 
+    <script src="js/main.js"></script>
+    <script src="js/certificates.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/particles.js"></script>
     <script>
-        // Scroll to top functionality
-        const scrollTopBtn = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Certificate Filter Functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const certificateCards = document.querySelectorAll('.certificate-card');
-        const noResults = document.getElementById('noResults');
-
-        // Initialize all certificates as visible
-        certificateCards.forEach(card => {
-            card.style.display = 'flex';
-        });
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                const filter = button.getAttribute('data-filter');
-                let visibleCount = 0;
-
-                certificateCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        card.style.display = 'flex';
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                // Show/hide no results message
-                if (visibleCount === 0) {
-                    noResults.classList.add('show');
-                    document.getElementById('certificatesGrid').style.display = 'none';
-                } else {
-                    noResults.classList.remove('show');
-                    document.getElementById('certificatesGrid').style.display = 'grid';
-                }
-            });
-        });
-
-        // Certificate Modal Functionality
-        const modal = document.getElementById('certificateModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalClose = document.getElementById('modalClose');
-        const modalPrev = document.getElementById('modalPrev');
-        const modalNext = document.getElementById('modalNext');
-        let currentCertificateIndex = 0;
-        let visibleCertificates = [];
-
-        // Get all certificate images
-        function getVisibleCertificates() {
-            visibleCertificates = [];
-            certificateCards.forEach((card, index) => {
-                const computedStyle = window.getComputedStyle(card);
-                if (computedStyle.display !== 'none') {
-                    const img = card.querySelector('.certificate-image-container img');
-                    if (img) {
-                        // Store both the element and src for better matching
-                        visibleCertificates.push({
-                            src: img.getAttribute('src'),
-                            fullSrc: img.src,
-                            alt: img.alt,
-                            index: index,
-                            element: img
-                        });
-                    }
-                }
-            });
-        }
-
-        // Open modal with certificate
-        certificateCards.forEach((card, index) => {
-            card.addEventListener('click', () => {
-                getVisibleCertificates();
-                const img = card.querySelector('.certificate-image-container img');
-                if (img && visibleCertificates.length > 0) {
-                    // Find the clicked certificate in visible list
-                    const clickedSrc = img.getAttribute('src');
-                    currentCertificateIndex = visibleCertificates.findIndex(
-                        cert => cert.src === clickedSrc || cert.fullSrc === img.src
-                    );
-                    if (currentCertificateIndex === -1) currentCertificateIndex = 0;
-                    modalImage.src = visibleCertificates[currentCertificateIndex].fullSrc;
-                    modalImage.alt = visibleCertificates[currentCertificateIndex].alt;
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    updateModalNavigation();
-                }
-            });
-        });
-
-        // Close modal
-        modalClose.addEventListener('click', () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Close modal on background click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close modal on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Navigate to previous certificate
-        modalPrev.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (visibleCertificates.length > 0) {
-                currentCertificateIndex = (currentCertificateIndex - 1 + visibleCertificates.length) % visibleCertificates.length;
-                modalImage.src = visibleCertificates[currentCertificateIndex].fullSrc;
-                modalImage.alt = visibleCertificates[currentCertificateIndex].alt;
-                updateModalNavigation();
-            }
-        });
-
-        // Navigate to next certificate
-        modalNext.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (visibleCertificates.length > 0) {
-                currentCertificateIndex = (currentCertificateIndex + 1) % visibleCertificates.length;
-                modalImage.src = visibleCertificates[currentCertificateIndex].fullSrc;
-                modalImage.alt = visibleCertificates[currentCertificateIndex].alt;
-                updateModalNavigation();
-            }
-        });
-
-        // Keyboard navigation in modal
-        document.addEventListener('keydown', (e) => {
-            if (modal.classList.contains('active')) {
-                if (e.key === 'ArrowLeft') {
-                    modalPrev.click();
-                } else if (e.key === 'ArrowRight') {
-                    modalNext.click();
-                }
-            }
-        });
-
-        function updateModalNavigation() {
-            // Hide navigation buttons if only one certificate
-            if (visibleCertificates.length <= 1) {
-                modalPrev.style.display = 'none';
-                modalNext.style.display = 'none';
-            } else {
-                modalPrev.style.display = 'flex';
-                modalNext.style.display = 'flex';
-            }
-        }
+        document.getElementById('backToTop')
+            .addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
 </body>
 </html>
