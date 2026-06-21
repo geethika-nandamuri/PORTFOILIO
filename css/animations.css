@@ -1,260 +1,63 @@
-/* =========================================
-   KEYFRAMES
-   ========================================= */
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: translateY(0);    }
+@keyframes blink { 50% { opacity: 0; } }
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-@keyframes fadeLeft {
-    from { opacity: 0; transform: translateX(-28px); }
-    to   { opacity: 1; transform: translateX(0);     }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
-@keyframes fadeRight {
-    from { opacity: 0; transform: translateX(28px); }
-    to   { opacity: 1; transform: translateX(0);    }
-}
-
-@keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.88); }
-    to   { opacity: 1; transform: scale(1);    }
-}
-
-@keyframes slideInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0);    }
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-40px); }
-    to   { opacity: 1; transform: translateX(0);     }
-}
-
-/* gentle perpetual float — used on images */
-@keyframes floatSlow {
-    0%, 100% { transform: translateY(0);   }
-    50%       { transform: translateY(-8px); }
-}
-
-/* pulsing glow ring */
-@keyframes glowRing {
-    0%, 100% { box-shadow: 0 0 0   4px rgba(129, 140, 248, 0);
-                           /* outer */ }
-    50%       { box-shadow: 0 0 0  10px rgba(129, 140, 248, 0.12),
-                            0 0 30px  rgba(167, 139, 250, 0.07); }
-}
-
-/* gradient shimmer sweep */
-@keyframes shimmer {
-    0%   { background-position: -200% center; }
-    100% { background-position:  200% center; }
-}
-
-/* section title underline grows in from center */
-@keyframes lineGrow {
-    from { transform: translateX(-50%) scaleX(0); }
-    to   { transform: translateX(-50%) scaleX(1); }
-}
-
-/* subtle rotate for decorative orbs / blobs */
-@keyframes orbitSlow {
-    from { transform: rotate(0deg)   translateX(6px) rotate(0deg);   }
-    to   { transform: rotate(360deg) translateX(6px) rotate(-360deg);}
-}
-
-/* =========================================
-   MODAL ANIMATIONS
-   ========================================= */
-
-.certificate-modal.active {
-    animation: fadeIn 0.3s ease;
-}
-
-.certificate-modal.active .modal-content {
-    animation: zoomIn 0.32s cubic-bezier(0.34, 1.3, 0.64, 1);
-}
-
-/* =========================================
-   SCROLL-TRIGGERED BASE CLASS
-   — toggled by IntersectionObserver in main.js
-   ========================================= */
-
-.animate-on-scroll {
+.reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition:
-        opacity   0.65s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* ---- stagger delay helpers ---- */
-.animate-on-scroll.delay-1 { transition-delay: 0.10s; }
-.animate-on-scroll.delay-2 { transition-delay: 0.20s; }
-.animate-on-scroll.delay-3 { transition-delay: 0.30s; }
-.animate-on-scroll.delay-4 { transition-delay: 0.40s; }
-.animate-on-scroll.delay-5 { transition-delay: 0.50s; }
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; }
+.stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; }
+.stagger-children.visible > *:nth-child(7) { transition-delay: 0.35s; }
+.stagger-children.visible > *:nth-child(8) { transition-delay: 0.4s; }
 
-/* ---- directional variants ---- */
-.animate-on-scroll.from-left  { transform: translateX(-28px); }
-.animate-on-scroll.from-right { transform: translateX(28px);  }
-.animate-on-scroll.from-left.visible,
-.animate-on-scroll.from-right.visible { transform: translateX(0); }
+.stagger-children.visible > * { opacity: 1; transform: translateY(0); }
 
-.animate-on-scroll.zoom { transform: scale(0.92); }
-.animate-on-scroll.zoom.visible { transform: scale(1); }
+.footer__social a:hover svg { animation: bounce 0.4s ease; }
 
-/* =========================================
-   SECTION TITLES — animated underline
-   ========================================= */
-
-.section-title::after {
-    animation: lineGrow 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-    transform-origin: center;
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
-
-/* =========================================
-   SKILLS IMAGE — slow float
-   ========================================= */
-
-.skills-image img {
-    animation: floatSlow 7s ease-in-out infinite;
-    will-change: transform;
-}
-
-/* =========================================
-   SKILL CARDS — hover glow ring
-   ========================================= */
-
-.skill-card:hover {
-    animation: glowRing 2s ease-in-out infinite;
-}
-
-/* =========================================
-   STAT ITEMS — shimmer on hover
-   ========================================= */
-
-.stat-item:hover .stat-number {
-    background-size: 200% auto;
-    animation: shimmer 1.4s linear infinite;
-}
-
-/* =========================================
-   CERTIFICATE CARDS — hover glow ring
-   ========================================= */
-
-.certificate-card:hover {
-    animation: glowRing 2.2s ease-in-out infinite;
-}
-
-/* =========================================
-   ACHIEVEMENT CARDS — hover glow + float
-   ========================================= */
-
-.achievement-card:hover {
-    animation: glowRing 2s ease-in-out infinite;
-}
-
-/* badge image floats continuously once card is hovered */
-.achievement-card:hover img {
-    animation: floatSlow 3s ease-in-out infinite;
-}
-
-/* =========================================
-   FILTER BUTTONS — active pill shimmer
-   ========================================= */
-
-.filter-btn.active {
-    background-size: 200% auto;
-    animation: shimmer 2.5s linear infinite;
-}
-
-/* =========================================
-   SECTION TITLE — fade up on load
-   ========================================= */
-
-#skills    .section-title,
-#certificates .section-title,
-#achievements .section-title {
-    animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-/* =========================================
-   ACHIEVEMENTS LIST PANEL — glow ring on hover
-   ========================================= */
-
-.achievements-list:hover {
-    box-shadow:
-        0 0  0  1px rgba(129, 140, 248, 0.12),
-        0 0 40px   rgba(129, 140, 248, 0.07);
-    transition: box-shadow 0.5s ease;
-}
-
-/* =========================================
-   FOOTER — gradient border pulse
-   ========================================= */
-
-footer::before {
-    animation: shimmer 5s linear infinite;
-    background-size: 200% auto;
-}
-
-/* =========================================
-   SCROLL-TOP BUTTON — arrow bounce
-   ========================================= */
-
-@keyframes arrowBounce {
-    0%, 100% { transform: translateY(0);    }
-    50%       { transform: translateY(-3px); }
-}
-
-.scroll-top.show {
-    /* arrow character inside bounces gently */
-    animation: arrowBounce 2s ease-in-out 1s infinite;
-}
-
-/* override: hover stops the bounce and uses the spring lift from style.css */
-.scroll-top:hover {
-    animation: none;
-}
-
-/* =========================================
-   SCROLL-TOP — outer glow pulse when visible
-   ========================================= */
-
-@keyframes scrollGlow {
-    0%, 100% { box-shadow: 0 4px 18px rgba(129, 140, 248, 0.35); }
-    50%       { box-shadow: 0 4px 28px rgba(129, 140, 248, 0.55),
-                            0 0  14px rgba(167, 139, 250, 0.20); }
-}
-
-.scroll-top.show:not(:hover) {
-    animation: arrowBounce 2s ease-in-out 1s infinite,
-               scrollGlow  3s ease-in-out    infinite;
-}
-
-/* =========================================
-   GLOBAL — respect reduced-motion preference
-   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration:        0.01ms !important;
-        animation-iteration-count: 1      !important;
-        transition-duration:       0.01ms !important;
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
+    .reveal { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
 }
