@@ -177,34 +177,66 @@ function initLazyLoad() {
 
 /* ----- Contact Form ----- */
 function initContactForm() {
-    const form = document.getElementById('contactForm');
+    const SERVICE_ID  = 'service_mqgcn3s';
+    const TEMPLATE_ID = 'template_f26hz7n';
+    const PUBLIC_KEY  = 'kycitYbLlrEYX4CFA';
+
+    emailjs.init(PUBLIC_KEY);
+
+    const form       = document.getElementById('contactForm');
+    const submitBtn  = form?.querySelector('button[type="submit"]');
+    const successEl  = document.getElementById('formSuccess');
+    const sendErrEl  = document.getElementById('formSendError');
     if (!form) return;
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
+    const fields = [
+        { id: 'name',    errorId: 'nameError',    validate: v => v.trim().length > 0 },
+        { id: 'email',   errorId: 'emailError',   validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+        { id: 'message', errorId: 'messageError', validate: v => v.trim().length > 0 },
+    ];
+
+    function validate() {
         let valid = true;
-
-        const fields = [
-            { id: 'name', errorId: 'nameError', validate: v => v.trim().length > 0 },
-            { id: 'email', errorId: 'emailError', validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-            { id: 'message', errorId: 'messageError', validate: v => v.trim().length > 0 },
-        ];
-
         fields.forEach(({ id, errorId, validate }) => {
             const input = document.getElementById(id);
             const error = document.getElementById(errorId);
-            const isValid = validate(input.value);
-
-            input.classList.toggle('error', !isValid);
-            error?.classList.toggle('show', !isValid);
-            if (!isValid) valid = false;
+            const ok = validate(input.value);
+            input.classList.toggle('error', !ok);
+            error?.classList.toggle('show', !ok);
+            if (!ok) valid = false;
         });
+        return valid;
+    }
 
-        if (!valid) return;
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        successEl.classList.remove('show');
+        sendErrEl.style.display = 'none';
 
-        document.getElementById('formSuccess')?.classList.add('show');
-        form.reset();
-        setTimeout(() => document.getElementById('formSuccess')?.classList.remove('show'), 5000);
+        if (!validate()) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+            name:    document.getElementById('name').value.trim(),
+            email:   document.getElementById('email').value.trim(),
+            message: document.getElementById('message').value.trim(),
+        })
+        .then(() => {
+            successEl.classList.add('show');
+            form.reset();
+            setTimeout(() => successEl.classList.remove('show'), 5000);
+        })
+        .catch(err => {
+            sendErrEl.textContent = 'Something went wrong. Please try again.';
+            sendErrEl.style.display = 'block';
+            console.error('EmailJS error:', err);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
     });
 }
 
