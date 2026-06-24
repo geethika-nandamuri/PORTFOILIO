@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initNavbar();
     initTypewriter();
@@ -274,24 +274,31 @@ function renderProjects() {
     const grid = document.getElementById('projectsGrid');
     if (!grid) return;
 
-    grid.innerHTML = SITE_DATA.projects.map(p => `
+    grid.innerHTML = SITE_DATA.projects.map(p => {
+        const demoBtn = p.demo
+            ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo</a>`
+            : `<button class="btn btn--primary btn--sm project-card__coming-soon" disabled title="Coming Soon" aria-label="No live demo yet">Coming Soon</button>`;
+
+        const badge = p.featured ? '<span class="project-card__badge">Featured</span>' : '';
+        const tags  = p.tags.map(t => `<span class="badge">${t}</span>`).join('');
+
+        return `
         <article class="project-card glass-card${p.featured ? ' project-card--featured' : ''}">
             <div class="project-card__image">
+                ${badge}
                 <img data-src="${p.image}" alt="${p.title}" loading="lazy">
             </div>
             <div class="project-card__body">
                 <h3 class="project-card__title">${p.title}</h3>
                 <p class="project-card__desc">${p.desc}</p>
-                <div class="project-card__tags">
-                    ${p.tags.map(t => `<span class="badge">${t}</span>`).join('')}
-                </div>
+                <div class="project-card__tags">${tags}</div>
                 <div class="project-card__actions">
-                    <a href="${p.github}" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">GitHub</a>
-                    ${p.demo ? `<a href="${p.demo}" class="btn btn--primary btn--sm">Live Demo</a>` : ''}
+                    <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">GitHub</a>
+                    ${demoBtn}
                 </div>
             </div>
-        </article>
-    `).join('');
+        </article>`;
+    }).join('');
 
     initLazyLoad();
 }
@@ -371,3 +378,4 @@ function renderStats() {
         grid.querySelectorAll('.stat-card').forEach(card => observer.observe(card));
     }
 }
+

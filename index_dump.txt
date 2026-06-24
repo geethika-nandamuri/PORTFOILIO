@@ -73,7 +73,7 @@
                         <a href="https://www.codechef.com/users/geethikanandam" target="_blank" rel="noopener" aria-label="CodeChef">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
                         </a>
-                        <a href="mailto:geethika.nandamuri@gmail.com" aria-label="Email">
+                        <a href="mailto:geethika.nandamuri@sasi.ac.in" aria-label="Email">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                         </a>
                     </div>
@@ -210,7 +210,7 @@
                             <div class="contact__link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
                             <div class="contact__link-text"><h4>CodeChef</h4><p>geethikanandam</p></div>
                         </a>
-                        <a href="mailto:geethika.nandamuri@gmail.com" class="contact__link glass-card">
+                        <a href="mailto:geethika.nandamuri@sasi.ac.in" class="contact__link glass-card">
                             <div class="contact__link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
                             <div class="contact__link-text"><h4>Email</h4><p>geethika.nandamuri@gmail.com</p></div>
                         </a>
@@ -253,7 +253,7 @@
                 <a href="https://www.codechef.com/users/geethikanandam" target="_blank" rel="noopener" aria-label="CodeChef">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
                 </a>
-                <a href="mailto:geethika.nandamuri@gmail.com" aria-label="Email">
+                <a href="mailto:geethika.nandamuri@sasi.ac.in" aria-label="Email">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </a>
             </div>
