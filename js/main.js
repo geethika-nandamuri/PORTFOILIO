@@ -306,7 +306,9 @@ function renderProjects() {
     const grid = document.getElementById('projectsGrid');
     if (!grid) return;
 
-    grid.innerHTML = SITE_DATA.projects.map(p => {
+    let expandedIndex = null;
+
+    grid.innerHTML = SITE_DATA.projects.map((p, i) => {
         const demoBtn = p.demo
             ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo</a>`
             : `<button class="btn btn--primary btn--sm project-card__coming-soon" disabled title="Coming Soon" aria-label="No live demo yet">Coming Soon</button>`;
@@ -315,14 +317,15 @@ function renderProjects() {
         const tags  = p.tags.map(t => `<span class="badge">${t}</span>`).join('');
 
         return `
-        <article class="project-card glass-card${p.featured ? ' project-card--featured' : ''}">
+        <article class="project-card glass-card${p.featured ? ' project-card--featured' : ''}" data-index="${i}">
             <div class="project-card__image">
                 ${badge}
                 <img data-src="${p.image}" alt="${p.title}" loading="lazy">
             </div>
             <div class="project-card__body">
                 <h3 class="project-card__title">${p.title}</h3>
-                <p class="project-card__desc">${p.desc}</p>
+                <p class="project-card__desc" id="proj-desc-${i}">${p.desc}</p>
+                <button class="project-card__read-more" data-index="${i}" aria-expanded="false" aria-controls="proj-desc-${i}">Read More</button>
                 <div class="project-card__tags">${tags}</div>
                 <div class="project-card__actions">
                     <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">GitHub</a>
@@ -331,6 +334,32 @@ function renderProjects() {
             </div>
         </article>`;
     }).join('');
+
+    grid.addEventListener('click', e => {
+        const btn = e.target.closest('.project-card__read-more');
+        if (!btn) return;
+
+        const clickedIndex = parseInt(btn.dataset.index, 10);
+        const isExpanding = expandedIndex !== clickedIndex;
+
+        // collapse currently expanded card
+        if (expandedIndex !== null) {
+            const prevDesc = document.getElementById(`proj-desc-${expandedIndex}`);
+            const prevBtn  = grid.querySelector(`.project-card__read-more[data-index="${expandedIndex}"]`);
+            prevDesc?.classList.remove('project-card__desc--expanded');
+            if (prevBtn) { prevBtn.textContent = 'Read More'; prevBtn.setAttribute('aria-expanded', 'false'); }
+        }
+
+        if (isExpanding) {
+            const desc = document.getElementById(`proj-desc-${clickedIndex}`);
+            desc?.classList.add('project-card__desc--expanded');
+            btn.textContent = 'Read Less';
+            btn.setAttribute('aria-expanded', 'true');
+            expandedIndex = clickedIndex;
+        } else {
+            expandedIndex = null;
+        }
+    });
 
     initLazyLoad();
 }
